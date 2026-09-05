@@ -3,6 +3,26 @@
 Pacote com componentes comuns para agentes da Fabao Corp: agentes, skills e
 servidores MCP.
 
+## 🚀 Quick Start (Recomendado)
+
+Instale o pacote **com agentes automaticamente**:
+
+```bash
+cd seu-projeto
+
+# Opção 1: Script all-in-one (mais fácil)
+bash ../commons/scripts/install-with-agents.sh ../commons
+
+# Opção 2: Manual (mais controle)
+apm init -y --target agent-skills,claude
+apm install ../commons --target agent-skills,claude
+bash ../commons/scripts/post-install.sh
+```
+
+Pronto! ✅ Agentes e skills instalados automaticamente.
+
+---
+
 ## 1. Instalar o pacote pelo repositório GitHub
 
 No projeto que receberá os componentes, inicialize o APM CLI com o target
@@ -10,13 +30,16 @@ desejado:
 
 ```bash
 cd meu-projeto
-apm init -y --target claude
+apm init -y --target agent-skills,claude
 ```
 
 Instale o pacote informando o repositório GitHub no formato `owner/repository`:
 
 ```bash
-apm install slackwarecps/apm-package-commons --target claude
+apm install slackwarecps/apm-package-commons --target agent-skills,claude
+
+# Depois copie os agentes
+bash ./scripts/post-install.sh
 ```
 
 Para instalar para o GitHub Copilot:
