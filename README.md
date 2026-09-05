@@ -1,96 +1,92 @@
 # Commons — pacote APM
 
 Pacote com componentes comuns para agentes da Fabao Corp: agentes, skills e
-servidores MCP. O pacote pode ser instalado em um projeto preparado para o
-APM CLI.
+servidores MCP.
 
-## Pré-requisitos
+## 1. Instalar o pacote pelo repositório GitHub
 
-- APM CLI instalado e disponível como `apm` no terminal;
-- um projeto-alvo onde os componentes serão instalados;
-- um target configurado, como `claude` ou `copilot`.
-
-## Instalação a partir de uma cópia local
-
-Clone este repositório ao lado do projeto onde deseja instalar o pacote:
+No projeto que receberá os componentes, inicialize o APM CLI com o target
+desejado:
 
 ```bash
-git clone git@github.com:slackwarecps/apm-package-commons.git commons
-cd projeto-alvo
-```
-
-Inicialize o projeto com o target desejado:
-
-```bash
+cd meu-projeto
 apm init -y --target claude
 ```
 
-Instale o pacote informando o caminho para a pasta clonada:
+Instale o pacote informando o repositório GitHub no formato `owner/repository`:
 
 ```bash
-apm install ../commons --target claude
+apm install slackwarecps/apm-package-commons --target claude
 ```
 
-Para instalar para o GitHub Copilot, use:
+Para instalar para o GitHub Copilot:
 
 ```bash
-apm init -y --target copilot
-apm install ../commons --target copilot
+apm install slackwarecps/apm-package-commons --target copilot
 ```
 
-Também é possível inicializar os dois targets de uma vez:
+Para instalar nos dois targets:
 
 ```bash
 apm init -y --target claude,copilot
-apm install ../commons --target claude
+apm install slackwarecps/apm-package-commons --target claude,copilot
 ```
 
-## Instalação via marketplace
-
-Se o pacote estiver publicado em um marketplace registrado no APM, adicione o
-marketplace e pesquise o pacote:
+Se o ambiente exigir autenticação SSH, acrescente `--ssh`:
 
 ```bash
-apm marketplace add <caminho-ou-fonte-do-marketplace> --name <nome-do-marketplace>
-apm search commons@<nome-do-marketplace>
+apm install slackwarecps/apm-package-commons --target claude --ssh
 ```
 
-Depois, use o identificador exibido pelo catálogo para instalar o pacote:
-
-```bash
-apm install commons@<nome-do-marketplace> --target claude
-```
-
-Confira os targets disponíveis com:
+O APM registra a dependência no projeto e baixa o conteúdo do pacote. Para
+verificar os targets disponíveis, execute:
 
 ```bash
 apm targets
 ```
 
-## Arquivos instalados
+## 2. Baixar o código-fonte para editar o pacote
 
-Com o target `claude`, os componentes são materializados no projeto-alvo em:
+Para desenvolver ou alterar este pacote, clone o repositório diretamente:
 
-```text
-.claude/agents/example-agent.md
-.claude/skills/example-skill/SKILL.md
-apm_modules/_local/commons/mcp/example-server/server.js
+```bash
+git clone git@github.com:slackwarecps/apm-package-commons.git
+cd apm-package-commons
 ```
 
-Com o target `copilot`, o agente e a skill são materializados em:
+Edite os componentes nas pastas correspondentes:
 
 ```text
-.github/agents/example-agent.agent.md
-.agents/skills/example-skill/SKILL.md
-apm_modules/_local/commons/mcp/example-server/server.js
+.agents/       agentes do pacote
+skills/        skills do pacote
+mcp/           servidores MCP do pacote
+apm.yml        metadados do pacote
 ```
 
-O servidor MCP incluído neste pacote é um placeholder. Ele ainda não possui
-transporte ou comando de integração com um cliente MCP.
+Depois de editar, valide as mudanças e publique uma nova versão no GitHub:
+
+```bash
+git diff --check
+git add .
+git commit -m "Describe the package change"
+git push origin main
+```
+
+Para testar a cópia local em outro projeto antes de publicar:
+
+```bash
+cd ../meu-projeto
+apm install ../apm-package-commons --target claude
+```
+
+## Componentes atuais
+
+O pacote inclui exemplos de agente e skill. O servidor MCP incluído é um
+placeholder e ainda não possui transporte ou comando de integração com um
+cliente MCP.
 
 ## Metadados
 
 - Nome: `commons`
 - Versão: `1.0.0`
-- Descrição: `Primitives comuns para agentes da Fabao Corp`
 - Repositório: `git@github.com:slackwarecps/apm-package-commons.git`
