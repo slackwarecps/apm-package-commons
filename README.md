@@ -102,14 +102,37 @@ cd ../meu-projeto
 apm install ../apm-package-commons --target claude
 ```
 
-## Componentes atuais
+## 📦 Componentes Inclusos
 
-O pacote inclui exemplos de agente e skill. O servidor MCP incluído é um
-placeholder e ainda não possui transporte ou comando de integração com um
-cliente MCP.
+### Agentes
+
+- **grill-me-agent** — Entrevista técnica rigorosa para validar planos, designs e arquitetura. Questiona intensamente com objetivo de melhorar propostas.
+
+### Skills
+
+- **bmad-agent-tech-lead** — Marina, o Tech Lead especializado em revisão de código, validação de arquitetura e mentoria de desenvolvedores. Use quando precisar de validação técnica, code reviews ou orientação arquitetural.
+
+- **engineering-standards** — Padrões de engenharia da FabaoCorp para manter consistência técnica.
+
+- **example-skill** — Skill de exemplo para referência.
+
+### MCP Servers
+
+- **example-server** — Servidor MCP placeholder (sem transporte configurado ainda).
+
+---
+
+## 🎯 Fluxo de Uso Recomendado
+
+1. **Validar Arquitetura** → Use `grill-me-agent` para entrevista técnica
+2. **Code Review** → Invoque a skill `bmad-agent-tech-lead` (Marina) para revisão
+3. **Padronização** → Consulte `engineering-standards` para manter qualidade
+
+---
 
 ## Metadados
 
 - Nome: `commons`
 - Versão: `1.0.0`
 - Repositório: `git@github.com:slackwarecps/apm-package-commons.git`
+- Última atualização: 2026-09-05
