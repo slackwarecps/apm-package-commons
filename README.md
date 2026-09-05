@@ -5,7 +5,7 @@ servidores MCP.
 
 ## 🚀 Quick Start (Recomendado)
 
-Instale o pacote **com agentes automaticamente**:
+Instale o pacote **com todas as skills**:
 
 ```bash
 cd seu-projeto
@@ -16,10 +16,9 @@ bash ../commons/scripts/install-with-agents.sh ../commons
 # Opção 2: Manual (mais controle)
 apm init -y --target agent-skills,claude
 apm install ../commons --target agent-skills,claude
-bash ../commons/scripts/post-install.sh
 ```
 
-Pronto! ✅ Agentes e skills instalados automaticamente.
+Pronto! ✅ Skills instaladas automaticamente.
 
 ---
 
@@ -104,19 +103,19 @@ apm install ../apm-package-commons --target claude
 
 ## 📦 Componentes Inclusos
 
-### Agentes
+### 🔥 Skills - Agentes Especializados
 
-- **grill-me-agent** — Entrevista técnica rigorosa para validar planos, designs e arquitetura. Questiona intensamente com objetivo de melhorar propostas.
-
-### Skills
+- **grill-me-agent** — Entrevista técnica rigorosa para validar planos, designs e arquitetura. Questiona intensamente com objetivo de melhorar propostas. Segue 8 dimensões de análise.
 
 - **bmad-agent-tech-lead** — Marina, o Tech Lead especializado em revisão de código, validação de arquitetura e mentoria de desenvolvedores. Use quando precisar de validação técnica, code reviews ou orientação arquitetural.
+
+### 📚 Skills - Referência
 
 - **engineering-standards** — Padrões de engenharia da FabaoCorp para manter consistência técnica.
 
 - **example-skill** — Skill de exemplo para referência.
 
-### MCP Servers
+### 🔌 MCP Servers
 
 - **example-server** — Servidor MCP placeholder (sem transporte configurado ainda).
 
@@ -124,9 +123,9 @@ apm install ../apm-package-commons --target claude
 
 ## 🎯 Fluxo de Uso Recomendado
 
-1. **Validar Arquitetura** → Use `grill-me-agent` para entrevista técnica
-2. **Code Review** → Invoque a skill `bmad-agent-tech-lead` (Marina) para revisão
-3. **Padronização** → Consulte `engineering-standards` para manter qualidade
+1. **Validar Arquitetura** → Use `/grill-me-agent` para entrevista técnica rigorosa
+2. **Code Review & Mentoria** → Invoque `/bmad-agent-tech-lead` (Marina) para revisão profunda
+3. **Padronização** → Consulte `/engineering-standards` para manter qualidade em linha
 
 ---
 

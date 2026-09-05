@@ -1,6 +1,6 @@
 # 📦 Guia de Instalação - Commons Package
 
-## Instalação Completa (Agentes + Skills)
+## Instalação Completa (Skills + Agentes Encapsulados)
 
 ### Opção 1: Instalação Local (Recomendado para Desenvolvimento)
 
@@ -8,15 +8,14 @@
 # No projeto que vai usar os componentes
 cd ~/seu-projeto
 
-# Inicializar APM com suporte a agents e claude
+# Inicializar APM com suporte a agent-skills e claude
 apm init -y --target agent-skills,claude
 
 # Instalar o pacote commons
 apm install ../caminho/para/commons --target agent-skills,claude
-
-# Copiar agentes manualmente (até APM v1.0 suportar)
-cp ../commons/.agents/*.md .agents/ 2>/dev/null || mkdir -p .agents && cp ../commons/.agents/*.md .agents/
 ```
+
+**Pronto!** Todas as skills (incluindo agentes encapsulados) estão instaladas.
 
 ### Opção 2: Instalação via GitHub (quando publicado)
 
@@ -26,23 +25,27 @@ apm init -y --target agent-skills,claude
 
 # Instalar do GitHub
 apm install owner/apm-package-commons --target agent-skills,claude
+```
 
-# Copiar agentes
-curl -s https://raw.githubusercontent.com/owner/apm-package-commons/main/.agents/grill-me-agent.md > .agents/grill-me-agent.md
+### Opção 3: Script All-in-One
+
+```bash
+bash ./commons/scripts/install-with-agents.sh ./commons
 ```
 
 ---
 
 ## Componentes Instalados
 
-### ✅ Skills (via APM)
+### ✅ Skills - Agentes Especializados
+- `grill-me-agent/` → Entrevista técnica rigorosa (instalado como skill encapsulada)
+- `bmad-agent-tech-lead/` → Marina, Tech Lead (instalado como skill encapsulada)
+
+### ✅ Skills - Referência
 - `engineering-standards/SKILL.md` → em `.claude/skills/` e `.agents/skills/`
 - `example-skill/SKILL.md` → em `.claude/skills/` e `.agents/skills/`
 
-### ⚠️ Agentes (Cópia Manual)
-- `grill-me-agent.md` → deve ser copiado para `.agents/`
-
-**Nota:** O APM CLI v0.28.0 ainda não copia agentes Claude Code automaticamente. Isso será suportado em v1.0. Por enquanto, use `cp` ou `curl` para trazer os agentes.
+**Nota:** A partir desta versão, o Grill-me e BMad Tech Lead são skills estruturadas (não agentes simples). Isso permite customização via `customize.toml` e melhor integração com o APM CLI.
 
 ---
 
