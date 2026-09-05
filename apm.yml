@@ -2,3 +2,13 @@ name: commons
 version: 1.0.0
 description: Primitives comuns para agentes da Fabao Corp
 license: UNLICENSED
+
+agents:
+  - .agents/grill-me-agent.md
+
+skills:
+  - skills/example-skill/SKILL.md
+  - skills/engineering-standards/SKILL.md
+
+mcp:
+  - mcp/example-server/server.js
