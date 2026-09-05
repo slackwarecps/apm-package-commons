@@ -1,4 +1,29 @@
 name: commons
 version: 1.0.0
-description: Primitives comuns para agentes da Fabao Corp
+description: Pacote APM com especialistas técnicos para validação arquitetural, code review e padrões de engenharia
 license: UNLICENSED
+
+# Metadados do pacote
+author: Fabão Corp
+repository: https://github.com/slackwarecps/apm-package-commons
+
+# Tags para discovery
+tags:
+  - architecture-review
+  - code-review
+  - technical-validation
+  - engineering-standards
+  - mentoring
+
+# Compatibilidade
+compatibility:
+  claude-versions:
+    - claude-opus-5
+    - claude-sonnet-5
+    - claude-haiku-4-5
+
+# Skills inclusos
+skills:
+  - grill-me-agent
+  - bmad-agent-tech-lead
+  - engineering-standards
