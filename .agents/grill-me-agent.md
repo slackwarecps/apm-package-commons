@@ -1,5 +1,7 @@
 ---
 name: grill-me-agent
+type: agent
+description: Agente para entrevista técnica rigorosa (Grill-me)
 model: claude-haiku-4-5-20251001
 reasoning_effort: extended
 tools:
